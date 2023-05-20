@@ -1,0 +1,36 @@
+.navigation {
+    color: white;
+    font-size: 36px;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+
+.nav-list {
+    display: flex;
+    list-style: none;
+}
+
+.nav-item:not(:first-child) {
+    margin-left: 40px;
+}
+
+.nav-link {
+    padding: 10px 20px;
+    border: 1px solid white;
+    border-radius: 10px;
+    color: white;
+    text-decoration: none;
+}
+
+.nav-link:hover {
+    color: yellow;
+    border-color: yellow;
+}
+
+.nav-link-active {
+    padding: 10px 20px;
+    border: 1px solid yellow;
+    border-radius: 10px;
+    color: yellow;
+    text-decoration: none;
+}
