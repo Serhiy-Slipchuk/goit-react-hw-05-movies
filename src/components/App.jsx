@@ -1,14 +1,10 @@
-import { getMovies } from 'functions/clientAPI';
-import { useEffect } from 'react';
 import { Routes, Route, NavLink } from 'react-router-dom';
 import Home from 'pages/Home';
 import Movies from 'pages/Movies';
 import MovieInfo from 'pages/MovieInfo';
 
 export const App = () => {
-  useEffect(() => {
-    getMovies();
-  }, []);
+  
   return (
     <div
       style={{

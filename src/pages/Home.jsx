@@ -1,5 +1,12 @@
-const Home = function() {
-    return (<div>HomePage</div>)
-}
+import { useEffect } from "react";
+import { getMovies } from "functions/clientAPI";
 
-export default Home
+const Home = function () {
+  useEffect(() => {
+    getMovies();
+  }, []);
+
+  return <div>HomePage</div>;
+};
+
+export default Home;
