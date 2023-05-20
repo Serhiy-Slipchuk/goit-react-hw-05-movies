@@ -30,6 +30,7 @@ const Home = function () {
             </li>;
         })}
       </ul>
+      {isLoading && <p>Loading...</p>}
     </>
   );
 };
