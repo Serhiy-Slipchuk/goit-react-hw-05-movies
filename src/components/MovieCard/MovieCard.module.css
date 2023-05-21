@@ -1,4 +1,7 @@
 .movie-card {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
     width: 300px;
     margin-left: 20px;
     margin-top: 20px;
@@ -11,4 +14,11 @@
     padding-left: 15px;
     padding-right: 15px;
     color: #3f51b5;
+}
+
+.no-image {
+    display: block;
+    width: 300px;
+    height: 300px;
+    fill: #3f51b5;
 }
