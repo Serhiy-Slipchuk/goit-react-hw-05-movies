@@ -1,5 +1,7 @@
 import { useEffect, useState } from 'react';
 import { getPopularMovies } from 'functions/clientAPI';
+import MoviesList from 'components/MoviesList/MoviesList';
+import MovieCard from 'components/MovieCard/MovieCard';
 
 const Home = function () {
   const [movies, setMovies] = useState([]);
@@ -22,14 +24,17 @@ const Home = function () {
   return (
     <>
       <h1>HomePage</h1>
-      <ul>
+      <MoviesList>
         {movies.map(({ poster_path, original_title, id }) => {
-          return <li key={id}>
-            <img src={`https://image.tmdb.org/t/p/w300${poster_path}`} alt={original_title} />
-            <p>{original_title}</p>
-            </li>;
+          return (
+            <MovieCard
+              key={id}
+              posterPath={poster_path}
+              title={original_title}
+            />
+          );
         })}
-      </ul>
+      </MoviesList>
       {isLoading && <p>Loading...</p>}
     </>
   );
