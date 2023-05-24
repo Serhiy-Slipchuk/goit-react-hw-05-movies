@@ -1,3 +1,4 @@
+import Container from 'components/Container/Container';
 import Header from 'components/Header/Header';
 import Navigation from 'components/Navigation/Navigation';
 import menuItems from '../../data/menuItems.json';
@@ -9,9 +10,11 @@ const Layout = function () {
       <Header>
         <Navigation items={menuItems} />
       </Header>
-      <main>
-        <Outlet />
-      </main>
+      <Container>
+        <main>
+          <Outlet />
+        </main>
+      </Container>
     </>
   );
 };

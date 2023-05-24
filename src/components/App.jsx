@@ -3,6 +3,7 @@ import Home from 'pages/Home';
 import Movies from 'pages/Movies';
 import MovieInfo from 'pages/MovieInfo';
 import Layout from './Layout/Layout';
+import Reviews from './Reviews/Reviews';
 export const App = () => {
   return (
     <div>
@@ -12,7 +13,7 @@ export const App = () => {
           <Route path="/movies" element={<Movies />} />
           <Route path="/movies/:movieId" element={<MovieInfo />}>
             <Route path="cast" element={<p>Cast</p>} />
-            <Route path="reviews" element={<p>Rewiews</p>} />
+            <Route path="reviews" element={<Reviews/>} />
           </Route>
         </Route>
       </Routes>

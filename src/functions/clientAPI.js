@@ -19,3 +19,13 @@ export const getMoviesBySearchQuerry = async function (query) {
   });
   return response;
 };
+
+export const getMovieDetails = async function (movie_id) {
+    const response = await axios.get(`${BASE_URL}/movie/${movie_id}`, {params: {movie_id, ...searchParams}});
+    return response;
+}
+
+export const getMovieReviews = async function (movie_id) {
+    const response = await axios(`${BASE_URL}/movie/${movie_id}/reviews`, {params: {movie_id, ...searchParams}});
+    return response;
+}

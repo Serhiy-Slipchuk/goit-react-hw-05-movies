@@ -31,6 +31,7 @@ const Home = function () {
           return (
             <MovieCard
               key={id}
+              id={id}
               posterPath={poster_path}
               title={original_title}
             />

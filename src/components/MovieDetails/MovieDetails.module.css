@@ -1,0 +1,29 @@
+.movie-info {
+    display: flex;
+    justify-content: flex-start;
+}
+
+.info {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding-left: 30px;
+}
+
+.additinal-info h2{
+    font-size: 20px;
+    
+}
+
+.buttons-thumb {
+    display: flex;
+    justify-content: space-between;
+    width: 300px;
+}
+
+.no-image {
+    display: block;
+    width: 500px;
+    height: 500px;
+    fill: #3f51b5;
+}

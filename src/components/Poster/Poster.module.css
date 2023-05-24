@@ -1,0 +1,17 @@
+.poster {
+    padding: 20px;
+}
+
+.heading {
+    margin: 0;
+    padding: 10px 0;
+    font-size: 20px;
+    font-weight: 700;
+    color: #212121;
+}
+
+.text {
+    margin: 0;
+    font-size: 20px;
+    color: #555575;
+}
