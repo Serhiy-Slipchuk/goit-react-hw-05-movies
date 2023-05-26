@@ -5,36 +5,42 @@ import SearchForm from 'components/SearchForm/SearchForm';
 import MoviesList from 'components/MoviesList/MoviesList';
 import MovieCard from 'components/MovieCard/MovieCard';
 import Loader from 'components/Loader/Loader';
+import { useLocation, useSearchParams } from 'react-router-dom';
 
 const Movies = function () {
-  const [searchQuerry, setSearchQuerry] = useState('');
   const [movies, setMovies] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
 
+  const [searchParams, setSearchParams] = useSearchParams();
+  const searchRequest = searchParams.get('query');
+
+  const locationMoviesPage = useLocation();
+
   useEffect(
     prev => {
-      if (searchQuerry === '') {
+      if (!searchRequest) {
         return;
       }
       setIsLoading(true);
-      getMoviesBySearchQuerry(searchQuerry)
+      getMoviesBySearchQuerry(searchRequest)
         .then(({ data: { results, total_results } }) => {
           if (total_results && total_results !== 0) {
             setMovies(results);
           } else {
             window.alert(
-              `There is no any movie by ${searchQuerry} search query`
+              `There is no any movie by ${searchRequest} search query`
             );
           }
         })
         .catch(error => window.alert(error))
         .finally(() => setIsLoading(false));
     },
-    [searchQuerry]
+    [searchRequest]
   );
 
-  const handlerFormSubmit = querry => {
-    setSearchQuerry(querry);
+  const handlerFormSubmit = query => {
+    const nextParams = query !== '' ? { query } : {};
+    setSearchParams(nextParams);
   };
 
   return (
@@ -42,7 +48,7 @@ const Movies = function () {
       <Heading text="Search movie" />
       <SearchForm handlerOnSubmit={handlerFormSubmit} />
 
-      {movies.length > 0 && (
+      {searchRequest && (
         <MoviesList>
           {movies.map(({ poster_path, original_title, id }) => {
             return (
@@ -51,6 +57,7 @@ const Movies = function () {
                 id={id}
                 posterPath={poster_path}
                 title={original_title}
+                location={locationMoviesPage}
               />
             );
           })}

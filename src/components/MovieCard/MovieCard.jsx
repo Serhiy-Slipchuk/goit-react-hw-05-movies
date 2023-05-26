@@ -3,10 +3,10 @@ import css from './MovieCard.module.css';
 import { CiImageOff } from 'react-icons/ci';
 import PropTypes from 'prop-types';
 
-const MovieCard = function ({ id, posterPath, title }) {
+const MovieCard = function ({ id, posterPath, title, location }) {
   return (
     <li className={css['movie-card']}>
-      <Link to={`/movies/${id}`}>
+      <Link to={`/movies/${id}`} state={{from: location}}>
         {posterPath ? (
           <img
             src={`https://image.tmdb.org/t/p/w300${posterPath}`}

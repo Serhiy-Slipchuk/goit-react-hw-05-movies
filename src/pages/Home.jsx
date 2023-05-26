@@ -4,6 +4,7 @@ import Heading from 'components/Heading/Heading';
 import MoviesList from 'components/MoviesList/MoviesList';
 import MovieCard from 'components/MovieCard/MovieCard';
 import Loader from 'components/Loader/Loader';
+import { useLocation } from 'react-router-dom';
 
 const Home = function () {
   const [movies, setMovies] = useState([]);
@@ -23,6 +24,8 @@ const Home = function () {
       .finally(() => setIsLoading(false));
   }, []);
 
+  const locationHomePage = useLocation();
+
   return (
     <>
       <Heading text="Trending today"/>
@@ -34,6 +37,7 @@ const Home = function () {
               id={id}
               posterPath={poster_path}
               title={original_title}
+              location={locationHomePage}
             />
           );
         })}

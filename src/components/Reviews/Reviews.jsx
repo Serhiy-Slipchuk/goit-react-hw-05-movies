@@ -19,10 +19,6 @@ const Reviews = function () {
       .finally(() => setIsLoading(false));
   }, [movieId]);
 
-  setTimeout(() => {
-    console.log(reviews);
-  }, 2000);
-
   return (
     <div className={css.reviews}>
       {reviews.length > 0 ? (

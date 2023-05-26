@@ -1,0 +1,31 @@
+.cast {
+    background-color: lightcyan;
+}
+
+.cast-list {
+    list-style: none;
+    padding: 10px 40px;
+}
+
+.cast-item {
+    display: flex;
+    align-items: center;
+}
+
+.cast-item:not(:last-child) {
+    margin-bottom: 10px;
+}
+
+.cast-image {
+    display: block;
+    width: 100px;
+    margin-right: 30px;
+}
+
+.image-off {
+    display: block;
+    height: 100px;
+    width: 100px;
+    margin-right: 30px;
+    fill: #3f51b5;
+}

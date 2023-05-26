@@ -7,25 +7,30 @@ const searchParams = {
 };
 
 export const getPopularMovies = async function () {
-  const response = await axios.get(`${BASE_URL}/trending/movie/day`, {
+  const response = await axios(`${BASE_URL}/trending/movie/day`, {
     params: searchParams,
   });
   return response;
 };
 
 export const getMoviesBySearchQuerry = async function (query) {
-  const response = await axios.get(`${BASE_URL}/search/movie`, {
+  const response = await axios(`${BASE_URL}/search/movie`, {
     params: { query, ...searchParams },
   });
   return response;
 };
 
-export const getMovieDetails = async function (movie_id) {
-    const response = await axios.get(`${BASE_URL}/movie/${movie_id}`, {params: {movie_id, ...searchParams}});
+export const getMovieDetails = async function (movieId) {
+    const response = await axios(`${BASE_URL}/movie/${movieId}`, {params: {movieId, ...searchParams}});
     return response;
 }
 
-export const getMovieReviews = async function (movie_id) {
-    const response = await axios(`${BASE_URL}/movie/${movie_id}/reviews`, {params: {movie_id, ...searchParams}});
+export const getMovieReviews = async function (movieId) {
+    const response = await axios(`${BASE_URL}/movie/${movieId}/reviews`, {params: {movieId, ...searchParams}});
+    return response;
+}
+
+export const getMovieCast = async function (movieId) {
+    const response = await axios(`${BASE_URL}/movie/${movieId}/credits`, {params: {movieId, ...searchParams}});
     return response;
 }

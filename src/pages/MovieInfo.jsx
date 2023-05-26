@@ -1,9 +1,10 @@
-import { useEffect, useState } from 'react';
-import { Outlet, useParams } from 'react-router-dom';
+import { useEffect, useRef, useState } from 'react';
+import { Outlet, useLocation, useParams } from 'react-router-dom';
 import { getMovieDetails } from 'functions/clientAPI';
 import Heading from 'components/Heading/Heading';
 import MovieDetails from 'components/MovieDetails/MovieDetails';
 import Loader from 'components/Loader/Loader';
+import GoBackLink from 'components/GoBackLink/GoBackLink';
 
 const MovieInfo = function () {
   const [movieTitle, setMovieTitle] = useState('');
@@ -44,8 +45,13 @@ const MovieInfo = function () {
       .catch(error => window.alert(error))
       .finally(() => setIsLoading(false));
   }, [movieId]);
+
+const {state} = useLocation();
+const savedLocation = useRef(state);
+  
   return (
     <>
+      <GoBackLink path={savedLocation}/>
       {movieTitle && <Heading text={`${movieTitle} (${releaseYear})`} />}
       {imagePath &&
         originalTitle &&
@@ -62,6 +68,7 @@ const MovieInfo = function () {
         )}
       {isLoading && <Loader />}
       <Outlet />
+      <GoBackLink path={savedLocation}/>
     </>
   );
 };
