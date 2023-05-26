@@ -30,12 +30,13 @@ const Movies = function () {
             window.alert(
               `There is no any movie by ${searchRequest} search query`
             );
+            setSearchParams({})
           }
         })
         .catch(error => window.alert(error))
         .finally(() => setIsLoading(false));
     },
-    [searchRequest]
+    [searchRequest, setSearchParams]
   );
 
   const handlerFormSubmit = query => {
