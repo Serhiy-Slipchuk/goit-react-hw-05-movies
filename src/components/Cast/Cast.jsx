@@ -3,8 +3,8 @@ import { useParams } from 'react-router-dom';
 import css from './Cast.module.css';
 import { getMovieCast } from 'functions/clientAPI';
 import { CiImageOff } from 'react-icons/ci';
-import Loader from 'components/Loader/Loader';
 import Poster from 'components/Poster/Poster';
+import Loader from 'components/Loader/Loader';
 
 const Cast = function () {
   const [cast, setCast] = useState([]);
@@ -47,7 +47,5 @@ const Cast = function () {
     </div>
   );
 };
-
-Cast.propTypes = {};
 
 export default Cast;

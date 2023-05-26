@@ -1,8 +1,8 @@
 import { useEffect, useState } from 'react';
+import { useParams } from 'react-router-dom';
 import css from './Reviews.module.css';
 import Poster from 'components/Poster/Poster';
 import { getMovieReviews } from 'functions/clientAPI';
-import { useParams } from 'react-router-dom';
 import Loader from 'components/Loader/Loader';
 
 const Reviews = function () {

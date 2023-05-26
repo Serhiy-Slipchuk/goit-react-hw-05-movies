@@ -6,7 +6,7 @@ import PropTypes from 'prop-types';
 const MovieCard = function ({ id, posterPath, title, location }) {
   return (
     <li className={css['movie-card']}>
-      <Link to={`/movies/${id}`} state={{from: location}}>
+      <Link to={`/movies/${id}`} state={{ from: location }}>
         {posterPath ? (
           <img
             src={`https://image.tmdb.org/t/p/w300${posterPath}`}
@@ -25,6 +25,7 @@ MovieCard.propTypes = {
   id: PropTypes.number.isRequired,
   posterPath: PropTypes.string,
   title: PropTypes.string.isRequired,
+  location: PropTypes.object.isRequired,
 };
 
 export default MovieCard;

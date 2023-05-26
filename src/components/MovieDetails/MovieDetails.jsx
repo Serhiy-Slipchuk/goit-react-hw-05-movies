@@ -22,8 +22,8 @@ const MovieDetails = function ({ imagePath, title, score, overview, genres }) {
         <div className={css['additional-info']}>
           <h2>Additional information</h2>
           <div className={css['buttons-thumb']}>
-            <ButtonLink text="Cast" path="cast"/>
-            <ButtonLink text="Rewiews" path="reviews"/>
+            <ButtonLink text="Cast" path="cast" />
+            <ButtonLink text="Rewiews" path="reviews" />
           </div>
         </div>
       </div>

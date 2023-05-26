@@ -9,7 +9,12 @@ const Navigation = function ({ items }) {
         {items.map(({ name, url }) => {
           return (
             <li className={css['nav-item']} key={name}>
-              <NavLink className={({isActive}) => isActive ? css['nav-link-active'] : css['nav-link']} to={url}>
+              <NavLink
+                className={({ isActive }) =>
+                  isActive ? css['nav-link-active'] : css['nav-link']
+                }
+                to={url}
+              >
                 {name}
               </NavLink>
             </li>
