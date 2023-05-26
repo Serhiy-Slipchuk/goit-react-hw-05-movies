@@ -8,7 +8,7 @@ const MovieDetails = function ({ imagePath, title, score, overview, genres }) {
   return (
     <div className={css['movie-info']}>
       {imagePath ? (
-        <img src={`https://image.tmdb.org/t/p/w500${imagePath}`} alt={title} />
+        <img src={`https://image.tmdb.org/t/p/w500${imagePath}`} alt={title} width={500} height={750}/>
       ) : (
         <CiImageOff className={css['no-image']} />
       )}

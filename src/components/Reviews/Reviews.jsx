@@ -21,18 +21,24 @@ const Reviews = function () {
 
   return (
     <div className={css.reviews}>
-      {reviews.length > 0 ? (
-        reviews.map(({ author, content, id }) => {
-          return (
-            <Poster key={id} heading={`Author: ${author}`} text={content} />
-          );
-        })
-      ) : (
-        <Poster
-          heading="Sorry..."
-          text="We don't have any reviews for this movie"
-        />
-      )}
+      <ul className={css['reviews-list']}>
+        {reviews.length > 0 ? (
+          reviews.map(({ author, content, id }) => {
+            return (
+              <li key={id}>
+                <Poster key={id} heading={`Author: ${author}`} text={content} />
+              </li>
+            );
+          })
+        ) : (
+          <li>
+            <Poster
+              heading="Sorry..."
+              text="We don't have any reviews for this movie"
+            />
+          </li>
+        )}
+      </ul>
 
       {isLoading && <Loader />}
     </div>

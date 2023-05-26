@@ -10,6 +10,8 @@ const MovieCard = function ({ id, posterPath, title, location }) {
         {posterPath ? (
           <img
             src={`https://image.tmdb.org/t/p/w300${posterPath}`}
+            width={300}
+            height={450}
             alt={title}
           />
         ) : (
