@@ -5,7 +5,7 @@ import PropTypes from 'prop-types';
 
 const GoBackLink = function ({ path }) {
   return (
-    <Link className={css['go-back-link']} to={path?.current.from ?? '/'}>
+    <Link className={css['go-back-link']} to={path?.current?.from ?? '/'}>
       <BsFillArrowLeftSquareFill />
       <span className={css['link-anchor']}>Go Back</span>
     </Link>

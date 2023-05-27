@@ -46,12 +46,12 @@ const MovieInfo = function () {
       .finally(() => setIsLoading(false));
   }, [movieId]);
 
-const {state} = useLocation();
-const savedLocation = useRef(state);
-  
+  const { state } = useLocation();
+  const savedLocation = useRef(state);
+
   return (
     <>
-      <GoBackLink path={savedLocation}/>
+      <GoBackLink path={savedLocation} />
       {movieTitle && <Heading text={`${movieTitle} (${releaseYear})`} />}
       {imagePath &&
         originalTitle &&
@@ -68,7 +68,6 @@ const savedLocation = useRef(state);
         )}
       {isLoading && <Loader />}
       <Outlet />
-      <GoBackLink path={savedLocation}/>
     </>
   );
 };

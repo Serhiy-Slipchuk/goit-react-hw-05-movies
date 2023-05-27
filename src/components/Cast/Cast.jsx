@@ -24,22 +24,31 @@ const Cast = function () {
     <div className={css.cast}>
       {cast && (
         <ul className={css['cast-list']}>
-          {cast.map(({ character, id, name, profile_path }) => {
-            return (
-              <li key={id} className={css['cast-item']}>
-                {profile_path ? (
-                  <img
-                    className={css['cast-image']}
-                    src={`https://image.tmdb.org/t/p/w200${profile_path}`}
-                    alt={name}
-                  />
-                ) : (
-                  <CiImageOff className={css['image-off']} />
-                )}
-                <Poster heading={name} text={`Character: ${character}`} />
-              </li>
-            );
-          })}
+          {cast.length > 0 ? (
+            cast.map(({ character, id, name, profile_path }) => {
+              return (
+                <li key={id} className={css['cast-item']}>
+                  {profile_path ? (
+                    <img
+                      className={css['cast-image']}
+                      src={`https://image.tmdb.org/t/p/w200${profile_path}`}
+                      alt={name}
+                    />
+                  ) : (
+                    <CiImageOff className={css['image-off']} />
+                  )}
+                  <Poster heading={name} text={`Character: ${character}`} />
+                </li>
+              );
+            })
+          ) : (
+            <li>
+              <Poster
+                heading="Sorry..."
+                text="We don't have cast for this movie"
+              />
+            </li>
+          )}
         </ul>
       )}
 
